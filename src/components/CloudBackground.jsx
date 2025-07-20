@@ -5,13 +5,14 @@ export const CloudBackground = () => {
 
   useEffect(() => {
     generateClouds();
+    
     const handleResize = () => generateClouds();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const generateClouds = () => {
-    const count = 8;
+    const count = 6;
     const generated = [];
     for (let i = 0; i < count; i++) {
       generated.push({
