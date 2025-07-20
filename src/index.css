@@ -19,6 +19,7 @@
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
   --animate-cloud: cloud linear infinite;
+  --animate-spin-slow: spin 20s linear infinite;
 
   @keyframes float {
 

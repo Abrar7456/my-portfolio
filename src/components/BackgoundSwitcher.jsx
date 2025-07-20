@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { StarBackground } from "./StarBackground";
-import { CloudBackground } from "./CloudBackground";
+import { SunBackground } from "./SunBackground";
 
 export const BackgroundSwitcher = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -17,5 +17,5 @@ export const BackgroundSwitcher = () => {
   return () => window.removeEventListener("themeChange", updateTheme);
 }, []);
 
-  return isDarkMode ? <StarBackground /> : <CloudBackground />;
+  return isDarkMode ? <StarBackground /> : <SunBackground />;
 };
