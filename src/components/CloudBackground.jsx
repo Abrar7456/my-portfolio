@@ -12,7 +12,7 @@ export const CloudBackground = () => {
   }, []);
 
   const generateClouds = () => {
-    const count = 6;
+    const count = window.innerWidth < 768 ? 4 : 8;
     const generated = [];
     for (let i = 0; i < count; i++) {
       generated.push({
@@ -38,9 +38,10 @@ export const CloudBackground = () => {
             left: cloud.left,
             width: "200px",
             height: "80px",
-            transform: `translateX(0) scale(${cloud.scale})`,
+            transform: `translate3d(-100vw, 0, 0) scale(${cloud.scale})`,
             animationDuration: `${cloud.speed}s`,
-            animationDelay: 0,
+            animationDelay: `${cloud.delay}s`,
+            willChange: "transform",
           }}
         />
       ))}
