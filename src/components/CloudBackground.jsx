@@ -12,7 +12,7 @@ export const CloudBackground = () => {
   }, []);
 
   const generateClouds = () => {
-    const count = window.innerWidth < 768 ? 4 : 8;
+    const count = window.innerWidth < 768 ? 2 : 6;
     const generated = [];
     for (let i = 0; i < count; i++) {
       generated.push({
@@ -20,7 +20,7 @@ export const CloudBackground = () => {
         top: `${10 + Math.random() * 70}%`,
         left: `${Math.random() * 100}%`,
         scale: 0.8 + Math.random() * 0.6,
-        speed: 60 + Math.random() * 50,
+        speed: 80 + Math.random() * 50,
         delay: Math.random() * 10,
       });
     }
@@ -36,9 +36,9 @@ export const CloudBackground = () => {
           style={{
             top: cloud.top,
             left: cloud.left,
-            width: "200px",
-            height: "80px",
-            transform: `translate3d(-100vw, 0, 0) scale(${cloud.scale})`,
+            width: "1000px",
+            height: "350px",
+            transform: `translateX(-100vw) scale(${cloud.scale})`,
             animationDuration: `${cloud.speed}s`,
             animationDelay: `${cloud.delay}s`,
             willChange: "transform",
