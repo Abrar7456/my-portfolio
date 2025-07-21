@@ -4,16 +4,24 @@ export const StarBackground = () => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
 
-  useEffect(() => {
-    generateStars();
+ useEffect(() => {
+    const storedStars = localStorage.getItem("starBackgroundStars");
+    if (storedStars) {
+      setStars(JSON.parse(storedStars));
+    } else {
+      const generatedStars = generateStars();
+      setStars(generatedStars);
+      localStorage.setItem("starBackgroundStars", JSON.stringify(generatedStars));
+    }
+
     generateMeteors();
 
     const handleResize = () => {
-      generateStars();
+      // Optionally, you could re-generate only if you want responsive adjustment
+      // but for static stars, we won't regenerate on resize
     };
 
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -35,7 +43,7 @@ export const StarBackground = () => {
       });
     }
 
-    setStars(newStars);
+    return newStars;
   };
 
   const generateMeteors = () => {
